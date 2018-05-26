@@ -31,6 +31,8 @@ class DataResponse(Resource):
         'camera_id': fields.Str(missing=None),
         'available_place': fields.Str(missing=None),
         'total_place': fields.Str(missing=None),
+        'handi_total_place': fields.Str(missing=None),
+        'handi_available_place': fields.Str(missing=None)
     }
 
     @use_args(post_args)
@@ -49,7 +51,9 @@ class DataResponse(Resource):
         json_dict.update({
             post_args['camera_id']: {
                 "available_place": post_args['available_place'],
-                "total_place": post_args['total_place']
+                "total_place": post_args['total_place'],
+                "handi_total_place": post_args['handi_total_place'],
+                "handi_available_place": post_args['handi_available_place'],
             }
         })
 
